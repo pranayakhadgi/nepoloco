@@ -6,14 +6,14 @@ const WelcomeSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-8 sm:py-12 md:py-20 text-white relative">
-      {/* Semi-transparent overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-950/70 to-slate-900/80 backdrop-blur-sm" />
+      {/* just a subtle overlay so text is readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-950/30 to-slate-900/40" />
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        {/* Mobile-first: flex-col stacks vertically, image on top */}
+        {/* mobile shows image on top centered, desktop shows image on left */}
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-12">
-          {/* Image - appears first on mobile (top), left on desktop */}
+          {/* namaste gif - centered perfectly on mobile */}
           <motion.div
-            className="flex-shrink-0 w-full md:w-auto order-1"
+            className="flex-shrink-0 w-full flex justify-center md:justify-start md:w-auto order-1"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
@@ -21,18 +21,18 @@ const WelcomeSection = () => {
             <img
               src="/namasteee.gif"
               alt="Namaste greeting"
-              className="max-w-xs md:max-w-md w-full h-auto"
+              className="max-w-xs w-full h-auto mx-auto md:mx-0"
             />
           </motion.div>
 
-          {/* Content - appears second on mobile (below image), right on desktop */}
+          {/* text content below image on mobile, right side on desktop */}
           <motion.div
             className="flex-1 w-full text-center md:text-left order-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
           >
-            {/* Devanagari text - Swagatam - Large */}
+            {/* the devanagari welcome word */}
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent"
               style={{ fontFamily: "'Abhinav Regular', sans-serif" }}
@@ -43,7 +43,7 @@ const WelcomeSection = () => {
               :jfutd
             </motion.h1>
 
-            {/* Header text with Bilderberg Italic */}
+            {/* main welcome header */}
             <motion.h2
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-200 mb-8"
               style={{ fontFamily: "'Bilderberg Italic', serif" }}
@@ -56,7 +56,7 @@ const WelcomeSection = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator at the bottom - centered */}
+        {/* scroll down indicator at bottom */}
         <motion.div
           className="flex flex-col items-center gap-2 mt-12"
           initial={{ opacity: 0 }}

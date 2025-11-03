@@ -1,0 +1,57 @@
+/* Menu Section Galaxy Integration Styles */
+
+/* Glassmorphic card with galaxy connection */
+.menu-card-galaxy {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.menu-card-galaxy::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.1) 0%,
+    rgba(168, 85, 247, 0.1) 50%,
+    transparent 100%
+  );
+  animation: rotate-glow 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes rotate-glow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Subtle pulse animation for decorative elements */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .menu-card-galaxy::before {
+    animation: none;
+  }
+  
+  * {
+    animation: none !important;
+  }
+}
+

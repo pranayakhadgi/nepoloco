@@ -1,0 +1,71 @@
+/* Footer Galaxy Integration Styles */
+
+/* Feedback Button Animations */
+.footer-feedback-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-feedback-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.footer-feedback-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Social Button Effects */
+.footer-social-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-social-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.footer-social-button:hover::after {
+  opacity: 1;
+  animation: rotate-shine 2s linear infinite;
+}
+
+@keyframes rotate-shine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .footer-feedback-button::before,
+  .footer-social-button::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+

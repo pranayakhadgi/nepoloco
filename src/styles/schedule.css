@@ -1,0 +1,97 @@
+/* Schedule Timeline Custom Styles */
+
+/* Fade in animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Override react-chrono default styles */
+.schedule-card {
+  background: rgba(255, 247, 230, 0.95) !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem 1.5rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(212, 163, 115, 0.3) !important;
+}
+
+.schedule-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(212, 163, 115, 0.6) !important;
+  transform: translateY(-2px) !important;
+}
+
+.schedule-card-title {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.schedule-card-subtitle {
+  color: #64748b !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.schedule-card-text {
+  color: #475569 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.schedule-title {
+  color: #d4a373 !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Timeline line styling */
+.react-chrono-timeline > div > div {
+  border-left-color: #d4a373 !important;
+}
+
+/* Timeline card active state */
+.react-chrono-timeline .react-chrono-card {
+  transition: all 0.3s ease !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .schedule-card {
+    padding: 0.875rem 1.25rem !important;
+  }
+
+  .schedule-card-title {
+    font-size: 1.25rem !important;
+  }
+
+  .schedule-card-subtitle {
+    font-size: 0.8125rem !important;
+  }
+
+  .schedule-title {
+    font-size: 1rem !important;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .schedule-card,
+  .schedule-card:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+

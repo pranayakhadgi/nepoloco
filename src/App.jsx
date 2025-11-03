@@ -6,33 +6,37 @@ import DashainTiharSection from './components/DashainTiharSection';
 import ScheduleSection from './components/ScheduleSection';
 import MenuSection from './components/MenuSection';
 import FooterSection from './components/FooterSection';
-import backgroundImage from './assets/images/background.jpg';
 import './styles/fonts.css';
 import './styles/base.css';
 import './styles/parallax.css';
 import './styles/frames.css';
+import './styles/schedule.css';
+import './styles/menu.css';
+import './styles/footer.css';
 import './App.css';
 
 function App() {
   const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
 
-  // Parallax transforms - different speeds create depth illusion
-  // Background layer moves slowest (0.2x speed)
-  const backgroundY = useTransform(
+  // parallax setup - different layers move at different speeds to create depth
+  // galaxy background stays still, other layers move slowly
+  
+  // deep background layer moves slowest
+  const deepBackgroundY = useTransform(
     scrollY,
     [0, 1000],
-    shouldReduceMotion ? [0, 0] : [0, 200]
+    shouldReduceMotion ? [0, 0] : [0, 150]
   );
 
-  // Midground layer moves at medium speed (0.5x speed)
+  // middle layer moves a bit faster
   const midgroundY = useTransform(
     scrollY,
     [0, 1000],
-    shouldReduceMotion ? [0, 0] : [0, 500]
+    shouldReduceMotion ? [0, 0] : [0, 400]
   );
 
-  // Floating decorative elements (0.6x speed)
+  // floating elements move even faster
   const floatingY = useTransform(
     scrollY,
     [0, 1000],
@@ -41,53 +45,58 @@ function App() {
 
   return (
     <div className="App relative">
-      {/* Background Layer - Slowest parallax (0.2x speed) */}
+      {/* deep background parallax layer */}
       <motion.div
-        className="fixed inset-0 z-0 parallax-background"
-        style={{ y: backgroundY }}
+        className="fixed inset-0 z-0 parallax-deep-background"
+        style={{ y: deepBackgroundY }}
       >
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/80 to-slate-950/90" />
-        {/* Background image */}
+      </motion.div>
+
+      {/* galaxy background - stays completely still */}
+      <div
+        className="fixed inset-0 z-5"
+      >
+        {/* main galaxy image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `url(${backgroundImage})`
+            backgroundImage: `url(/galaxy-background.jpg)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat'
           }}
         />
-      </motion.div>
+      </div>
 
-      {/* Midground Layer - Medium parallax (0.5x speed) */}
+      {/* middle parallax layer */}
       <motion.div
-        className="fixed inset-0 z-10 parallax-midground pointer-events-none"
+        className="fixed inset-0 z-6 parallax-midground pointer-events-none"
         style={{ y: midgroundY }}
       >
-        {/* Decorative elements placeholder */}
+        {/* decorative gradient circles */}
         <div className="absolute top-20 left-10 w-64 h-64 opacity-20">
-          <div className="w-full h-full bg-gradient-to-br from-amber-500/30 to-purple-500/30 rounded-full blur-3xl" />
+          <div className="w-full h-full bg-gradient-to-br from-amber-500/30 to-purple-500/30 rounded-full" />
         </div>
         <div className="absolute bottom-40 right-10 w-96 h-96 opacity-15">
-          <div className="w-full h-full bg-gradient-to-br from-amber-600/20 to-pink-600/20 rounded-full blur-3xl" />
+          <div className="w-full h-full bg-gradient-to-br from-amber-600/20 to-pink-600/20 rounded-full" />
         </div>
-        {/* Decorative images can be added here later if needed */}
-        {/* Just using CSS gradient blobs for now */}
       </motion.div>
 
-      {/* Floating Elements Layer - Medium-fast parallax (0.6x speed) */}
+      {/* floating decorative elements */}
       <motion.div
-        className="fixed inset-0 z-5 parallax-floating pointer-events-none"
+        className="fixed inset-0 z-7 parallax-floating pointer-events-none"
         style={{ y: floatingY }}
       >
-        {/* Small floating decorative elements */}
+        {/* small gradient orbs */}
         <div className="absolute top-1/4 right-1/3 w-32 h-32 opacity-15">
-          <div className="w-full h-full bg-amber-500/20 rounded-full blur-2xl" />
+          <div className="w-full h-full bg-amber-500/20 rounded-full" />
         </div>
         <div className="absolute bottom-1/3 left-1/3 w-40 h-40 opacity-10">
-          <div className="w-full h-full bg-purple-500/20 rounded-full blur-2xl" />
+          <div className="w-full h-full bg-purple-500/20 rounded-full" />
         </div>
       </motion.div>
 
-      {/* Foreground Content - Normal scroll (1x speed) */}
+      {/* main content sections */}
       <div className="relative z-20">
         <WelcomeSection />
         <DashainTiharSection />

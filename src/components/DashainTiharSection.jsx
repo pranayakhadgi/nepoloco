@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 const DashainTiharSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 sm:py-12 md:py-20 text-white relative">
-      {/* Semi-transparent overlay for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/80 to-slate-950/85 backdrop-blur-sm" />
+      {/* subtle overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-900/30 to-slate-950/40" />
       <div className="relative z-10 w-full max-w-6xl mx-auto space-y-16 md:space-y-20">
         
-        {/* Dashain Section */}
+        {/* dashain info section */}
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
-          {/* Durga Image - appears first on mobile (top), right on desktop */}
+          {/* durga gif in round frame - top on mobile, right on desktop */}
           <motion.div
             className="flex-shrink-0 w-full md:w-auto order-1 md:order-2"
             initial={{ opacity: 0, y: -30 }}
@@ -29,7 +29,7 @@ const DashainTiharSection = () => {
             </div>
           </motion.div>
 
-          {/* Dashain Content - appears second on mobile (below image), left on desktop */}
+          {/* dashain explanation text */}
           <motion.div
             className="flex-1 w-full order-2 md:order-1"
             initial={{ opacity: 0, y: 30 }}
@@ -62,9 +62,9 @@ const DashainTiharSection = () => {
           </motion.div>
         </div>
 
-        {/* Tihar Section */}
+        {/* tihar info section */}
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
-          {/* Laxmi Image - appears first on mobile (top), left on desktop */}
+          {/* laxmi gif in round frame - top on mobile, left on desktop */}
           <motion.div
             className="flex-shrink-0 w-full md:w-auto order-1"
             initial={{ opacity: 0, y: -30 }}
@@ -83,7 +83,7 @@ const DashainTiharSection = () => {
             </div>
           </motion.div>
 
-          {/* Tihar Content - appears second on mobile (below image), right on desktop */}
+          {/* tihar explanation text */}
           <motion.div
             className="flex-1 w-full order-2"
             initial={{ opacity: 0, y: 30 }}
