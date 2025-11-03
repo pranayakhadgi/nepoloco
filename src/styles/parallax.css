@@ -1,0 +1,37 @@
+/* Parallax Layer Styles */
+.parallax-background,
+.parallax-midground,
+.parallax-floating {
+  will-change: transform;
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
+
+/* Disable parallax transforms for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-background,
+  .parallax-midground,
+  .parallax-floating {
+    transform: none !important;
+  }
+}
+
+/* Mobile optimization - reduce parallax intensity on touch devices */
+@media (max-width: 768px) {
+  .parallax-background,
+  .parallax-midground,
+  .parallax-floating {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-background,
+  .parallax-midground,
+  .parallax-floating {
+    opacity: 0.6;
+  }
+}
+

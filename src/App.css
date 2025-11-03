@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This file now only contains Tailwind directives */
+/* Other styles are imported separately in App.jsx */
