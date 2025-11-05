@@ -1,18 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { schedule } from '../data/schedule';
+import { bandPerformances, dancePerformances } from '../data/schedule';
 
 const ScheduleSection = () => {
   const shouldReduceMotion = useReducedMotion();
-
-  // splitting the schedule in half for the two sections
-  const { bandEvents, danceEvents } = useMemo(() => {
-    const midpoint = Math.ceil(schedule.length / 2);
-    return {
-      bandEvents: schedule.slice(0, midpoint),
-      danceEvents: schedule.slice(midpoint)
-    };
-  }, []);
 
   // animation settings for the schedule cards
   const containerVariants = {
@@ -63,18 +54,17 @@ const ScheduleSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
           {/* band album picture in frame - top on mobile, right on desktop */}
           <motion.div
-            className="flex-shrink-0 w-full md:w-auto order-1 md:order-2"
+            className="flex-shrink-0 w-full md:w-auto order-1 md:order-2 flex justify-center"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           >
-            <div className="picture-frame-album mx-auto">
+            <div className="picture-frame-album">
               <div className="frame-content-album">
                 <img
-                  src="/placeholder_album1.jpeg"
+                  src="/mustang band - Edited.png"
                   alt="Band Album"
-                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -105,25 +95,18 @@ const ScheduleSection = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {bandEvents.map((item, index) => (
+              {bandPerformances.map((item, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   className="bg-slate-800/60 backdrop-blur-sm rounded-lg p-4 md:p-6 border border-slate-700/50 hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
                 >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                    <span className="text-amber-400 font-semibold text-base md:text-lg">
-                      {item.time}
-                    </span>
-                    <h4 className="text-lg md:text-xl font-bold text-white">
-                      {item.performer}
-                    </h4>
-                  </div>
-                  {item.description && (
-                    <p className="text-slate-300 text-sm md:text-base">
-                      {item.description}
-                    </p>
-                  )}
+                  <h4 className="text-lg md:text-xl font-bold text-amber-400 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-slate-300 text-sm md:text-base">
+                    {item.description}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
@@ -134,18 +117,17 @@ const ScheduleSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8 md:gap-12">
           {/* dance group album picture in frame - top on mobile, left on desktop */}
           <motion.div
-            className="flex-shrink-0 w-full md:w-auto order-1"
+            className="flex-shrink-0 w-full md:w-auto order-1 flex justify-center"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           >
-            <div className="picture-frame-album mx-auto">
+            <div className="picture-frame-album">
               <div className="frame-content-album">
                 <img
-                  src="/placeholder_picture2.jpg"
+                  src="/dance_album.webp"
                   alt="Dance Group Album"
-                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -176,25 +158,18 @@ const ScheduleSection = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {danceEvents.map((item, index) => (
+              {dancePerformances.map((item, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   className="bg-slate-800/60 backdrop-blur-sm rounded-lg p-4 md:p-6 border border-slate-700/50 hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
                 >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
-                    <span className="text-amber-400 font-semibold text-base md:text-lg">
-                      {item.time}
-                    </span>
-                    <h4 className="text-lg md:text-xl font-bold text-white">
-                      {item.performer}
-                    </h4>
-                  </div>
-                  {item.description && (
-                    <p className="text-slate-300 text-sm md:text-base">
-                      {item.description}
-                    </p>
-                  )}
+                  <h4 className="text-lg md:text-xl font-bold text-amber-400 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-slate-300 text-sm md:text-base">
+                    {item.description}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

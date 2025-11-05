@@ -1,42 +1,54 @@
-export const schedule = [
+// Live Performances (Band)
+export const bandPerformances = [
   {
-    time: "11:00 AM",
-    performer: "Performance 1",
-    description: "Opening performance to kick off the celebration"
+    title: "Performance 1:",
+    description: "An english song performance. \"we're not spoiling this one!\""
   },
   {
-    time: "12:00 PM",
-    performer: "Performance 2",
-    description: "Traditional cultural presentation"
+    title: "Performance 2:",
+    description: "Khaseka Tara - Albatross"
   },
   {
-    time: "1:00 PM",
-    performer: "Performance 3",
-    description: "Musical interlude showcasing Nepali traditions"
+    title: "Performance 3:",
+    description: "Sindhuli Gadhi - Neetesh Jung Kunwar"
   },
   {
-    time: "2:00 PM",
-    performer: "Performance 4",
-    description: "Dance performance celebrating Dashain and Tihar"
+    title: "Performance 4:",
+    description: "Sadhai Sadhai - Mantra"
   },
   {
-    time: "3:00 PM",
-    performer: "Performance 5",
-    description: "Cultural showcase featuring community talents"
-  },
-  {
-    time: "4:00 PM",
-    performer: "Performance 6",
-    description: "Interactive performance engaging the audience"
-  },
-  {
-    time: "5:00 PM",
-    performer: "Performance 7",
-    description: "Special presentation highlighting the festivities"
-  },
-  {
-    time: "6:00 PM",
-    performer: "Performance 8",
-    description: "Closing performance to end the celebration"
+    title: "Performance 5:",
+    description: "(other performances tbd)"
   }
 ];
+
+// Dance Performances
+export const dancePerformances = [
+  {
+    title: "Performance 1:",
+    description: "Girls group dance"
+  },
+  {
+    title: "Performance 2:",
+    description: "Sheeya and Anshu's duo dance"
+  },
+  {
+    title: "Performance 3:",
+    description: "Sujata's solo dance"
+  },
+  {
+    title: "Performance 4:",
+    description: "Boys group dance"
+  },
+  {
+    title: "Performance 5:",
+    description: "Sujata and Apekshya's duo performance"
+  },
+  {
+    title: "Performance 6:",
+    description: "(more tbd)"
+  }
+];
+
+// Legacy export for backwards compatibility (if needed elsewhere)
+export const schedule = [...bandPerformances, ...dancePerformances];

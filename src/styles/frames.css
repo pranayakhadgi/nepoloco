@@ -315,137 +315,51 @@
   }
 }
 
-/* Picture Frame Styles - Album Frame (Rectangular for album covers) */
+/* Picture Frame Styles - Album Frame (Minimalist album cover style) */
 .picture-frame-album {
   position: relative;
-  width: 400px;
-  height: 500px;
+  display: inline-block;
   margin: 0 auto;
-  perspective: 1200px;
 }
 
 .picture-frame-album .frame-content-album {
   position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 25px;
-  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
-  border: 8px solid #d4a373;
-  border-radius: 8px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.7),
-    inset 0 2px 4px rgba(255, 255, 255, 0.1),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(212, 163, 115, 0.3);
-  transform: rotateY(-3deg) rotateX(2deg);
-  transition: transform 0.4s ease;
-  overflow: hidden;
+  display: inline-block;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
 .picture-frame-album:hover .frame-content-album {
-  transform: rotateY(0deg) rotateX(0deg);
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.8),
-    inset 0 2px 4px rgba(255, 255, 255, 0.1),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(212, 163, 115, 0.5);
-}
-
-.picture-frame-album .frame-content-album::before {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 25px;
-  right: 25px;
-  bottom: 25px;
-  border: 2px solid rgba(212, 163, 115, 0.4);
-  border-radius: 4px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.picture-frame-album .frame-content-album::after {
-  content: '';
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  right: 30px;
-  bottom: 30px;
-  background: linear-gradient(135deg, rgba(212, 163, 115, 0.1) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .picture-frame-album .frame-content-album img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1px;
   position: relative;
-  z-index: 0;
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.4);
-  filter: brightness(1.05) contrast(1.05);
-  transition: filter 0.3s ease;
-}
-
-.picture-frame-album:hover .frame-content-album img {
-  filter: brightness(1.1) contrast(1.1);
 }
 
 /* Responsive adjustments for album frames */
 @media (max-width: 768px) {
-  .picture-frame-album {
-    width: 300px;
-    height: 380px;
-  }
-
   .picture-frame-album .frame-content-album {
-    padding: 18px;
-    transform: rotateY(-2deg) rotateX(1deg);
-  }
-
-  .picture-frame-album .frame-content-album::before {
-    top: 18px;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-  }
-
-  .picture-frame-album .frame-content-album::after {
-    top: 22px;
-    left: 22px;
-    right: 22px;
-    bottom: 22px;
+    padding: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .picture-frame-album {
-    width: 260px;
-    height: 330px;
-  }
-
   .picture-frame-album .frame-content-album {
-    padding: 15px;
-    transform: rotateY(-1deg) rotateX(1deg);
-    border-width: 6px;
+    padding: 8px;
   }
-
-  .picture-frame-album .frame-content-album::before {
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-width: 1.5px;
-  }
-
-          .picture-frame-album .frame-content-album::after {
-            top: 18px;
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
-          }
-        }
+}
 
 /* Picture Frame Styles - Classic Round Frame (for credits/profile) */
 .picture-frame-classic {

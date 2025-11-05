@@ -103,8 +103,8 @@ const MenuSection = () => {
                     <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
                     
                     <motion.p
-                      className="text-slate-100 text-lg md:text-xl leading-relaxed poppins-regular mt-6 relative z-10"
-                      style={{ fontFamily: "'Poppins', sans-serif" }}
+                      className="text-slate-100 text-lg md:text-xl leading-relaxed poppins-regular mt-6 relative z-10 break-words"
+                      style={{ fontFamily: "'Poppins', sans-serif", wordBreak: 'break-word', overflowWrap: 'break-word' }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4 }}
